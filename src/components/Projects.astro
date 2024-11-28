@@ -1,0 +1,62 @@
+---
+    const PROJECTS = [
+        {
+            title : 'Ruah Tejidos Artesanales',
+            description : 'En este proyecto, trabajé con un cliente que necesitaba crear un portfolio comercial desde cero para promocionar su marca de ropa en redes sociales. Comenzamos desarrollando el logo, seguido de la producción de imágenes y videos promocionales. Posteriormente, lanzamos una campaña de interacción con un llamado a la acción (CTA) hacia WhatsApp, los resulados los muestro en la siguiente card.',
+            link: 'https://www.facebook.com/profile.php?id=61557165322253',
+            github: '#',
+            image: '/projects/Proyect_Ruah.webp',
+            tags: ['Facebook', 'Instagram', 'Meta Business']
+        },
+        {
+            title : 'Ruah Tejidos - Campaña Publicitaria',
+            description : 'Esta campaña la creamos en base a lo que el cliente requeria, el CTA tenia que ser un botón de whatsapp, por lo tanto tomamos la decisión de que el objetivo iba a ser interacción, la segmentación de público la realice en base a intereses, edad, comportamiento, posición social y ubicación geografica.',
+            link: 'https://www.facebook.com/profile.php?id=61557165322253',
+            github: '#',
+            image:'/projects/Campaña_ruah.webp',
+            tags: ['Facebook', 'Instagram', 'Meta Business']
+        },
+        {
+            title : 'Educa</Te>',
+            description : 'Colaboré en el desarrollo de un sitio web para la venta de ebooks centrados en habilidades digitales. Mi aporte incluyó la creación de imágenes, diseño de ebooks en Canva y estrategias de marketing. Con este proyecto, buscamos no solo ofrecer contenido de alta calidad, sino también empoderar a los usuarios en su camino hacia la transformación digital. ¡Una colaboración enfocada en inspirar y transformar! ',
+            link: 'https://www.facebook.com/profile.php?id=61565581087383',
+            github: '#',
+            image: '/projects/svgl.webp',
+            tags: ['Astro', 'JavaScript', 'Tailwind']
+        },
+        {
+            title : 'Portfolio Comercial',
+            description : 'En este proyecto me encargue de crear un portfolio comercial en meta para vincular las redes sociales de Educa</Te> y poder administrar todo el contenido desde meta bussines suite, al mismo tiempo tener la posibilidad de crear una cuenta publicitaria para crear campañas de trafico o interacción ',
+            link: 'https://www.facebook.com/profile.php?id=61565581087383',
+            github: '#',
+            image: '/projects/svglll.webp',
+            tags: ['Facebook','Instagram, Meta Business']
+        },
+        
+    ]
+---
+
+{
+    PROJECTS.map(({image , title, description, tags, link}) => (
+        <article class="flex flex-col sm:flex-row items-center pl-4 pr-4">
+            <div class="w-full flex flex-col gap-2 md:w-[50%] mt-6">
+                <h3 class="text-[#99c6fac5] font-semibold text-[20px] ">{title}</h3>
+                <p class="text-[#b3b3b3] ">{description}</p>
+                <ul class="text-[white] font-semibold flex flex-row gap-2">
+                    {tags.map(tag => (
+                        <li>
+                            {tag}
+                        </li>
+                    ))}
+                </ul>
+                <a href={link} target="_blank" class="w-[30%] text-center border border-[white] text-[#ffffff] hover:bg-[white] hover:text-[#202020] transition-all duration-150 rounded-[8%] p-[4px]">
+                    Ir al proyecto
+                </a>
+            </div>
+            <div class="w-full md:w-[50%]">
+                <img src={image} alt={`Captura de pantalla del proyecto ${image}`} />
+            </div>        
+        </article>
+        
+    ))
+}
