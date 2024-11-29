@@ -15,16 +15,24 @@ const { description, title } = Astro.props;
 <html lang="en">
 	<head>
 		<!-- Google Tag Manager -->
-			<script>(function(w, d, s, l, i) {
+			<script>interface WindowWithGTM extends Window {
+				[key: string]: any;
+			  }
+			  
+			  (function (w: WindowWithGTM, d, s, l, i) {
 				w[l] = w[l] || [];
 				w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-				var f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s) as HTMLScriptElement,
-					dl = l != 'dataLayer' ? '&l=' + l : '';
+			  
+				const f = d.getElementsByTagName(s)[0];
+				const j = d.createElement(s) as HTMLScriptElement;
+				const dl = l !== 'dataLayer' ? '&l=' + l : '';
+			  
 				j.async = true;
 				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-				f.parentNode.insertBefore(j, f);
-			  })(window, document, 'script', 'dataLayer', 'GTM-MPVB2VD5');
+				if (f.parentNode) {
+				  f.parentNode.insertBefore(j, f);
+				}
+			  })(window as WindowWithGTM, document, 'script', 'dataLayer', 'GTM-MPVB2VD5');
 			</script>
 	<!-- End Google Tag Manager -->
 
